@@ -1,46 +1,67 @@
-# Getting Started with Create React App
+# Live Collaboration Whiteboard Frontend (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the **frontend** of the Live Collaboration Whiteboard, built with **React**. It allows multiple users to draw in real-time on a shared whiteboard, with various tools and color options. Users can see each other's drawings as they happen, and the app uses **WebSockets** to synchronize the drawings in real-time.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Real-Time Collaboration**: Multiple users can draw on the whiteboard at the same time, and their drawings will be visible to all other connected users.
+- **Drawing Tools**: Users can select from different drawing tools:
+  - **Circle**
+  - **Rectangle**
+  - **Text** (users can enter text)
+  - **Fill** (fill areas with a selected color)
+- **Color Options**: Users can choose from three colors for drawing:
+  - **Black**
+  - **Blue**
+  - **Red**
+- **Clear Whiteboard**: Users can clear the whiteboard, resetting the canvas for everyone.
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React**: The frontend is built using React to manage the user interface and state.
+- **HTML5 Canvas**: Used for rendering the drawing area and handling user interactions.
+- **CSS**: For styling the whiteboard and controls.
+- **Socket.IO**: Handles real-time communication with the backend server to synchronize drawings across all users.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+Follow these steps to set up the frontend project locally:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository**:
 
-### `npm run build`
+   ```bash
+   git clone https://github.com/romabulani/live-collaboration.git
+   cd live-collaboration
+2. Install dependencies:
+    Run the following command to install all required dependencies:
+    ```
+    npm install
+    ```
+3. Start the development server:
+    After installing the dependencies, run the following command to start the development server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```
+    npm start
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This will start the app in development mode. Open your browser and go to http://localhost:3001 to view the whiteboard.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## How It Works
+**Canvas Setup:** The whiteboard is rendered using the HTML5 Canvas element. The drawing area is set up where users can interact with the canvas by selecting different tools (shapes, text, etc.) and colors.
 
-### `npm run eject`
+**WebSocket Communication:** The frontend connects to the backend server using Socket.IO to send and receive drawing data in real-time. Each drawing action is sent to the server and broadcast to other connected users, keeping the whiteboard synchronized.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Drawing Tools:** Users can select the following drawing tools:
+- Circle: Draw a circle on the canvas.
+- Rectangle: Draw a rectangle on the canvas.
+- Text: Users can input text, which is drawn at a specified location.
+- Fill: Fill a selected area of the canvas with the chosen color.
+- Color Options: The available drawing colors are Black, Blue, and Red .Users can switch between these colors for different drawings.
+  
+**Clear Whiteboard:** Users can click the "Clear" button to clear the whiteboard, resetting it for all connected users. This triggers the clear event in the backend, resetting the canvas for all clients.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Frontend URL
+The frontend is deployed and live at https://draw-on-whiteboard.netlify.app/.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Notes
+The backend server for this application can be found in the [Live Collaboration Whiteboard repository](https://github.com/romabulani/live-collaboration-whiteboard).
